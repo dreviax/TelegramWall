@@ -3,6 +3,7 @@ import os
 from telegram import Update
 from telegram.ext import Application, MessageHandler, CommandHandler, filters, ContextTypes
 import config
+import time
 
 BOT_TOKEN = "8365352271:AAH-HzWy4bA1upcYkBrdLP_EF_aBa3y6i8s"
 
@@ -76,10 +77,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(welcome_text, parse_mode='HTML')
 
 def main():
-    application = Application.builder().token(BOT_TOKEN).build()
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(MessageHandler(filters.PHOTO, handle_photo))
-    application.run_polling()
+    while True:
+        try:
+            application = Application.builder().token(BOT_TOKEN).build()
+            application.add_handler(CommandHandler("start", start))
+            application.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+            application.run_polling()
+            
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+            print("Перезапуск бота через 5 секунд...")
+            time.sleep(5)
 
 if __name__ == "__main__":
     main()

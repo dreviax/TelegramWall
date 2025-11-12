@@ -5,7 +5,7 @@ from telegram.ext import Application, MessageHandler, CommandHandler, filters, C
 import config
 import time
 
-BOT_TOKEN = "8365352271:AAH-HzWy4bA1upcYkBrdLP_EF_aBa3y6i8s"
+BOT_TOKEN = "..."
 
 STATUS_EMOJIS = {
     "saving": "💾",

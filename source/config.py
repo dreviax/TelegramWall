@@ -18,4 +18,6 @@ EMOJI = {
     "error": "❌"
 }
 
-BOT_TOKEN = "8365352271:AAH-HzWy4bA1upcYkBrdLP_EF_aBa3y6i8s"
+BOT_TOKEN = "token
+"
+
